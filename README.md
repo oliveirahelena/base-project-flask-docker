@@ -16,9 +16,12 @@ docker cp ~/.gitconfig python_app:/home/python/.gitconfig
 
 ```bash
 sudo chmod +x ./entrypoint.sh
+sudo chmod 775 ./app/src/manage.py
 ```
+## Commands inside the container:
 
 ```bash
-sudo chown -R $USER:$USER .dbdata/
-sudo chmod -R 755 .dbdata
+./manage.py create-initial-db
+./manage.py flask db upgrade
+./manage.py test
 ```

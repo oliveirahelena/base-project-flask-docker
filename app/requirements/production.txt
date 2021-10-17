@@ -1,1 +1,4 @@
 psycopg2
+Flask
+flask-sqlalchemy
+flask-migrate

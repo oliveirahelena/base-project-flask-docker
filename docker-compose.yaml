@@ -1,23 +1,49 @@
 version: "3.8"
 services:
     app:
-        container_name: python_app
+        container_name: flask_app
         build:
-            context: .
+            context: ${PWD}
             dockerfile: Dockerfile
+        entrypoint: dockerize -wait tcp://db:5432 -timeout 20s
         tty: true
         volumes:
             - ./app:/app
         environment:
-            - DB_HOST=db
-            - DB_NAME=app
-            - DB_USER=postgres
-            - DB_PASS=supersecretpassword
-            - DEBUG=1
             - HOST=0.0.0.0
+            - FLASK_ENV=development
+            - FLASK_CONFIG=development
+            - APPLICATION_DB=application
+            - POSTGRES_USER=postgres
+            - POSTGRES_HOSTNAME=db
+            - POSTGRES_PASSWORD=supersecretpassword
+            - POSTGRES_PORT=5432
+        command: flask run --host 0.0.0.0
+        ports:
+            - "5001:5000"
         networks:
-            - python-app-network
+            - flask-app-network
+        depends_on:
+            - db
+    
+    db:
+        container_name: flask_postgres_db
+        image: postgres
+        tty: true
+        environment:
+            - POSTGRES_DB=postgres
+            - POSTGRES_USER=postgres
+            - POSTGRES_PASSWORD=supersecretpassword
+        ports:
+            - "5433:5432"
+        volumes:
+            - pgdata:/var/lib/postgresql/data
+        networks:
+            - flask-app-network
+
+volumes:
+    pgdata:
 
 networks:
-    python-app-network:
+    flask-app-network:
         driver: bridge
