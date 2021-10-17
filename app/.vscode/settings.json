@@ -1,0 +1,50 @@
+{
+  "editor.rulers": [
+    100
+  ],
+  "editor.minimap.enabled": false,
+  "python.linting.flake8Enabled": true,
+  "python.linting.flake8Args": [
+    "--max-line-length=100",
+    "exclude=.git,migrations,.venv"
+  ],
+  "editor.formatOnSave": true,
+  "python.formatting.provider": "black",
+  "python.linting.mypyEnabled": true,
+  "python.testing.pytestEnabled": true,
+  "python.testing.pytestArgs": [
+    "."
+  ],
+  "files.exclude": {
+    "**/.DS_Store": true,
+    "**/.git": true,
+    "**/.hg": true,
+    "**/.svn": true,
+    "**/CVS": true,
+    "dist": true,
+  },
+  "workbench.colorCustomizations": {
+    "activityBar.activeBackground": "#4ea9f7",
+    "activityBar.activeBorder": "#d50a77",
+    "activityBar.background": "#4ea9f7",
+    "activityBar.foreground": "#15202b",
+    "activityBar.inactiveForeground": "#15202b99",
+    "activityBarBadge.background": "#d50a77",
+    "activityBarBadge.foreground": "#e7e7e7",
+    "statusBar.background": "#4ea9f7",
+    "statusBar.foreground": "#15202b",
+    "statusBarItem.hoverBackground": "#1d91f5",
+    "editorGroup.border": "#4ea9f7",
+    "panel.border": "#4ea9f7",
+    "sash.hoverBorder": "#4ea9f7",
+    "sideBar.border": "#4ea9f7",
+    "statusBarItem.remoteBackground": "#4ea9f7",
+    "statusBarItem.remoteForeground": "#15202b",
+    "tab.activeBorder": "#4ea9f7",
+    "titleBar.activeBackground": "#4ea9f7",
+    "titleBar.activeForeground": "#15202b",
+    "titleBar.inactiveBackground": "#4ea9f799",
+    "titleBar.inactiveForeground": "#15202b99"
+  },
+  "peacock.remoteColor": "#1d91f5"
+}
