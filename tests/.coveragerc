@@ -2,4 +2,5 @@
 omit =
   *migrations/*,
   *tests/*,
+  *.venv/*,
 branch = True
