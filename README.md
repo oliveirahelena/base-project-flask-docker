@@ -1,1 +1,1 @@
-# Base project to develop with python and docker
+# Base project to develop with flask and docker
